@@ -928,6 +928,22 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+}
+
+.projet-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.projet-card:hover .projet-image img {
+    transform: scale(1.1);
 }
 
 .projet-overlay {
@@ -935,10 +951,46 @@ section {
     padding: 2rem;
     opacity: 0;
     transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .projet-card:hover .projet-overlay {
     opacity: 1;
+}
+
+/* Styles pour les images de projets */
+.projet-image img {
+    filter: brightness(0.7);
+    transition: all 0.3s ease;
+}
+
+.projet-card:hover .projet-image img {
+    filter: brightness(0.4);
+}
+
+/* Fallback si pas d'image */
+.projet-image:not(:has(img)) {
+    background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+}
+
+.projet-image:not(:has(img))::before {
+    content: '📱';
+    font-size: 3rem;
+    opacity: 0.3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
 }
 
 .projet-overlay h3 {
@@ -966,6 +1018,57 @@ section {
     border-radius: 15px;
     font-size: 0.8rem;
     font-weight: 500;
+}
+
+.projet-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.projet-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.doc-link {
+    background: rgba(255, 0, 136, 0.2);
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.doc-link:hover {
+    background: var(--accent-color);
+    color: var(--bg-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-neon-pink);
+}
+
+.github-link {
+    background: rgba(0, 0, 0, 0.3);
+    color: var(--text-light);
+    border-color: var(--text-light);
+}
+
+.github-link:hover {
+    background: var(--text-light);
+    color: var(--bg-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.projet-link i {
+    font-size: 1rem;
 }
 
 /* Veille Section */
@@ -1276,6 +1379,17 @@ section {
     
     .projets-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .projet-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .projet-link {
+        width: 100%;
+        max-width: 200px;
+        justify-content: center;
     }
     
     .docs-grid {
