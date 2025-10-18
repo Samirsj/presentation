@@ -716,9 +716,185 @@ section {
     font-weight: bold;
 }
 
+/* Documentation Section */
+.documentation {
+    background: var(--bg-dark);
+}
+
+.docs-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.doc-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.doc-intro p {
+    font-size: 1.2rem;
+    color: var(--text-gray);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.docs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.doc-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.doc-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--secondary-color);
+    box-shadow: var(--shadow-neon-blue);
+}
+
+.doc-header {
+    background: rgba(0, 136, 255, 0.1);
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.doc-header h3 {
+    color: var(--secondary-color);
+    font-family: 'Orbitron', monospace;
+    margin: 0;
+}
+
+.doc-period {
+    background: var(--secondary-color);
+    color: var(--bg-dark);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.doc-content {
+    padding: 2rem;
+}
+
+.doc-content p {
+    color: var(--text-gray);
+    margin-bottom: 1rem;
+}
+
+.doc-objectives,
+.doc-tasks,
+.doc-technologies,
+.doc-results {
+    margin-bottom: 1.5rem;
+}
+
+.doc-objectives h4,
+.doc-tasks h4,
+.doc-technologies h4,
+.doc-results h4 {
+    color: var(--text-light);
+    font-family: 'Orbitron', monospace;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+}
+
+.doc-objectives ul,
+.doc-tasks ul,
+.doc-results ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.doc-objectives li,
+.doc-tasks li,
+.doc-results li {
+    color: var(--text-gray);
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.doc-objectives li::before {
+    content: '🎯';
+    position: absolute;
+    left: 0;
+}
+
+.doc-tasks li::before {
+    content: '⚡';
+    position: absolute;
+    left: 0;
+}
+
+.doc-results li::before {
+    content: '✅';
+    position: absolute;
+    left: 0;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-tags span {
+    background: rgba(0, 136, 255, 0.1);
+    color: var(--secondary-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    border: 1px solid var(--secondary-color);
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.doc-download {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+}
+
+.doc-download h3 {
+    color: var(--text-light);
+    font-family: 'Orbitron', monospace;
+    margin-bottom: 1.5rem;
+}
+
+.download-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.download-buttons .btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.download-buttons .btn i {
+    font-size: 1rem;
+}
+
 /* Projets Section */
 .projets {
-    background: var(--bg-dark);
+    background: var(--bg-darker);
 }
 
 .projets-grid {
@@ -1100,6 +1276,20 @@ section {
     
     .projets-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .docs-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .download-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .download-buttons .btn {
+        width: 100%;
+        max-width: 300px;
     }
     
     .contact-content {
